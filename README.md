@@ -8,7 +8,7 @@ As of this writing I have yet completed the course material; completed assignmen
 Work in process.
 
 * Assignment #1
- 	* Q1: k-Nearest Neighbor classifier (20 points) [***done!***]
+ 	* Q1: [k-Nearest Neighbor classifier (20 points)](https://github.com/xinyulab/cs231n_assignment/blob/master/assignment1/knn.ipynb) [***done!***]
  	* Q2: Training a Support Vector Machine (25 points)
  	* Q3: Implement a Softmax classifier (20 points)
  	* Q4: Two-Layer Neural Network (25 points)
