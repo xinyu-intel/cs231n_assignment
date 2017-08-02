@@ -14,7 +14,7 @@ Work in process.
  	* Q4: [Two-Layer Neural Network (25 points)](https://github.com/xinyulab/cs231n_assignment/blob/master/assignment1/two_layer_net.ipynb) [***done!***]
  	* Q5: [Higher Level Representations: Image Features (10 points)](https://github.com/xinyulab/cs231n_assignment/blob/master/assignment1/features.ipynb) [***done!***]
  * Assignment #2
- 	* Q1: Fully-connected Neural Network (30 points) [***done!***]
+ 	* Q1: [Fully-connected Neural Network (30 points)](https://github.com/xinyulab/cs231n_assignment/blob/master/assignment2/FullyConnectedNets.ipynb) [***done!***]
  	* Q2: Batch Normalization (30 points)
  	* Q3: Dropout (10 points)
  	* Q4: ConvNet on CIFAR-10 (30 points)
