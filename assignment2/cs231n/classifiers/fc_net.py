@@ -234,10 +234,19 @@ class FullyConnectedNet(object):
         # normalization layer. You should pass self.bn_params[0] to the forward pass
         # of the first batch normalization layer, self.bn_params[1] to the forward
         # pass of the second batch normalization layer, etc.
-        self.bn_params = []
         if self.use_batchnorm:
-            self.bn_params = [{'mode': 'train'} for i in range(self.num_layers - 1)]
+            print ('We use batchnorm here')
+            self.bn_params = {'bn_param' + str(i + 1): {'mode': 'train',
+                                                        'running_mean': np.zeros(dims[i + 1]),
+                                                        'running_var': np.zeros(dims[i + 1])}
+                              for i in range(len(dims) - 2)}
+            gammas = {'gamma' + str(i + 1):
+                      np.ones(dims[i + 1]) for i in range(len(dims) - 2)}
+            betas = {'beta' + str(i + 1): np.zeros(dims[i + 1])
+                     for i in range(len(dims) - 2)}
 
+            self.params.update(betas)
+            self.params.update(gammas)
         # Cast all parameters to the correct datatype
         for k, v in self.params.items():
             self.params[k] = v.astype(dtype)
@@ -257,8 +266,8 @@ class FullyConnectedNet(object):
         if self.use_dropout:
             self.dropout_param['mode'] = mode
         if self.use_batchnorm:
-            for bn_param in self.bn_params:
-                bn_param['mode'] = mode
+            for key, bn_param in self.bn_params.items():
+                bn_param[mode] = mode
 
         scores = None
         ############################################################################

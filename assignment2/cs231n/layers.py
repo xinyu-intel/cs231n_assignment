@@ -420,8 +420,8 @@ def conv_forward_naive(x, w, b, conv_param):
     # Add padding to each image
     x_pad = np.pad(x, ((0,), (0,), (P,), (P,)), 'constant')
     # Size of the output
-    Hh = 1 + (H + 2 * P - HH) / S
-    Hw = 1 + (W + 2 * P - WW) / S
+    Hh = 1 + (H + 2 * P - HH) // S
+    Hw = 1 + (W + 2 * P - WW) // S
 
     out = np.zeros((N, F, Hh, Hw))
 
@@ -527,8 +527,8 @@ def max_pool_forward_naive(x, pool_param):
     Wp = pool_param['pool_width']
     S = pool_param['stride']
     N, C, H, W = x.shape
-    H1 = (H - Hp) / S + 1
-    W1 = (W - Wp) / S + 1
+    H1 = (H - Hp) // S + 1
+    W1 = (W - Wp) // S + 1
 
     out = np.zeros((N, C, H1, W1))
     for n in range(N):
@@ -565,8 +565,8 @@ def max_pool_backward_naive(dout, cache):
     Wp = pool_param['pool_width']
     S = pool_param['stride']
     N, C, H, W = x.shape
-    H1 = (H - Hp) / S + 1
-    W1 = (W - Wp) / S + 1
+    H1 = (H - Hp) // S + 1
+    W1 = (W - Wp) // S + 1
 
     dx = np.zeros((N, C, H, W))
     for nprime in range(N):
